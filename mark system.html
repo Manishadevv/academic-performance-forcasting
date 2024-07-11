@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Hours and Average</title>
+</head>
+<body>
+    <h1>Study Hours and Average</h1>
+    <p>Enter your study hours and calculate the average.</p>
+    <!-- You can add input fields and buttons here -->
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mark Prediction</title>
+</head>
+<body>
+
+<h2>Mark Prediction</h2>
+<form id="markPredictionForm">
+  <label for="studyHours">Study Hours:</label>
+  <input type="number" id="studyHours" name="studyHours" min="0" step="0.5" required>
+  
+  <label for="course">Course:</label>
+  <select id="course" name="course" required>
+    <option value="">Select Course</option>
+    <option value="Mathematics">Mathematics</option>
+    <option value="computer science">Computer Science</option>
+    <option value="History">History</option>
+    <option value="Accountancy">Accountancy</option>
+    <option value="language">language</option>
+    <option value="Biology">Biology</option>
+    <option value="physics">physics</option>
+    <!-- Add more courses as needed -->
+  </select>
+  
+  <button type="submit">Predict Mark</button>
+</form>
+
+<div id="predictionResult"></div>
+
+<script>
+document.getElementById('markPredictionForm').addEventListener('submit', function(event) {
+  event.preventDefault();
+  
+  const studyHours = parseFloat(document.getElementById('studyHours').value);
+  const course = document.getElementById('course').value;
+  
+  // Perform prediction based on study hours and course
+  const predictedMark = predictMark(studyHours, course);
+  
+  // Display prediction result
+  document.getElementById('predictionResult').innerHTML = `<p>Predicted Mark for ${course} with ${studyHours} study hours: ${predictedMark}</p>`;
+});
+
+function predictMark(studyHours, course) {
+  // Here you would implement your prediction algorithm
+  // This is just a placeholder function
+  let predictedMark;
+  switch (course) {
+    case 'Mathematics':
+      predictedMark = 80 + (studyHours * 2);
+      break;
+    case 'Biology':
+      predictedMark = 75 + (studyHours * 1.5);
+      break;
+    case 'History':
+      predictedMark = 85 + (studyHours * 1.75);
+      break;
+      case 'Language':
+      predictedMark = 80 + (studyHours * 2);
+      break;
+    case 'Computer science':
+      predictedMark = 75 + (studyHours * 1.5);
+      break;
+    case 'Physics':
+      predictedMark = 85 + (studyHours * 1.75);
+      break;
+      case 'Accountancy':
+      predictedMark = 80 + (studyHours * 2);
+      break;
+   
+     default:
+      predictedMark = 'N/A';
+  }
+  return predictedMark.toFixed(2); // Round to 2 decimal places
+}
+</script>
+
+</body>
+</html>
